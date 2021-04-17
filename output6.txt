@@ -1,0 +1,6 @@
+03.CopyBytesOutput.txt: [0]
+05.WriteEveryThirdLineOutput.txt: [0]
+02.WriteToFileOutput.txt: [0]
+06.SortLinesOutput.txt: [0]
+04.ExtractIntegersOutput.txt: [0]
+input.txt: [14318]
