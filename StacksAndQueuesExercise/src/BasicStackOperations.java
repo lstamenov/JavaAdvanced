@@ -6,35 +6,39 @@ public class BasicStackOperations {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayDeque<Integer> stack = new ArrayDeque<>();
-        int[] infArr = Arrays.stream((scanner.nextLine().split(" ")))
+        int[] variables = Arrays.stream(scanner.nextLine().split(" "))
                 .mapToInt(Integer::parseInt).toArray();
-        int[] numbers = Arrays.stream((scanner.nextLine().split(" ")))
-                .mapToInt(Integer::parseInt).toArray();
-        int numbersToAdd = infArr[0];
-        int numbersToRemove = infArr[1];
-        int elementToSearch = infArr[2];
+        int n = variables[0];
+        int s = variables[1];
+        int x = variables[2];
 
-        for (int i = 0; i < numbersToAdd; i++) {
-            stack.push(numbers[i]);
+        int[] numbers = Arrays.stream(scanner.nextLine().split(" "))
+                .mapToInt(Integer::parseInt).toArray();
+        for (int num : numbers) {
+            stack.push(num);
         }
-        for (int i = 0; i < numbersToRemove; i++) {
+        for (int i = 0; i < s; i++) {
             stack.pop();
         }
-        System.out.println(getElement(stack, elementToSearch));
+        if (isSuchElement(stack, x)){
+            System.out.println("true");
+        }else {
+            int smallestN = Integer.MAX_VALUE;
+            while (!stack.isEmpty()){
+                int num = stack.pop();
+                if (num < smallestN)
+                    smallestN = num;
+            }
+            System.out.println(smallestN);
+        }
     }
 
-    private static String getElement(ArrayDeque<Integer> stack, int element) {
-        int smallestN = Integer.MAX_VALUE;
-        while (!stack.isEmpty()){
-            int n = stack.peek();
-            if (n < smallestN){
-                smallestN = n;
-                if (element == n){
-                    return "true";
-                }
+    private static boolean isSuchElement(ArrayDeque<Integer> stack, int x) {
+        for (int n : stack) {
+            if (n == x){
+                return true;
             }
-            stack.pop();
         }
-        return String.valueOf(smallestN);
+        return false;
     }
 }

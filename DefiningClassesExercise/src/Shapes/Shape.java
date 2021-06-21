@@ -1,2 +1,7 @@
-package Shapes;public interface Shape {
+package Shapes;
+
+public interface Shape {
+    float getArea();
+    float getPerimeter();
+    String toString();
 }

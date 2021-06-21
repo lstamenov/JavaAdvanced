@@ -7,12 +7,12 @@ public class ReverseNumbersWithAStack {
         Scanner scanner = new Scanner(System.in);
         int[] arr = Arrays.stream(scanner.nextLine().split(" "))
                 .mapToInt(Integer::parseInt).toArray();
-        ArrayDeque<Integer> reversed = new ArrayDeque<>();
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
         for (int n : arr) {
-            reversed.push(n);
+            stack.push(n);
         }
-        while (!reversed.isEmpty()){
-            System.out.print(reversed.pop() + " ");
+        while (!stack.isEmpty()){
+            System.out.print(stack.pop() + " ");
         }
     }
 }

@@ -1,13 +1,12 @@
 package CustomList;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.function.Consumer;
 
-public class CustomLIst<Type extends Comparable<Type>> {
+public class CustomList<Type extends Comparable<Type>> implements Iterable<Type> {
     List<Type> elements;
 
-    CustomLIst(){
+    CustomList(){
         this.elements = new ArrayList<>();
     }
 
@@ -43,5 +42,37 @@ public class CustomLIst<Type extends Comparable<Type>> {
         return elements.stream()
                 .max(Comparator.naturalOrder())
                 .get();
+    }
+
+    public Type getMin(){
+        return elements.stream()
+                .min(Comparator.naturalOrder())
+                .get();
+    }
+
+    public void print(){
+        Iterator<Type> iteratorList = elements.listIterator();
+        while (iteratorList.hasNext()){
+            System.out.println(iteratorList.next());
+        }
+    }
+
+    public void sort(){
+        Collections.sort(elements);
+    }
+
+    @Override
+    public Iterator<Type> iterator() {
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super Type> action) {
+        Iterable.super.forEach(action);
+    }
+
+    @Override
+    public Spliterator<Type> spliterator() {
+        return Iterable.super.spliterator();
     }
 }

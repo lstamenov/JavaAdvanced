@@ -1,2 +1,4 @@
-package Tuple;public class Main {
+package Tuple;
+
+public class Main {
 }
