@@ -1,4 +1,4 @@
-package Exam1.Openning.src.bakery;
+package bakery;
 
 import java.util.ArrayList;
 import java.util.List;
